@@ -1,10 +1,9 @@
 {
-  "name": "github-example-app",
-  "version": "1.0.0",
-  "description": "An example app for the Zapier platform.",
-  "repository": "zapier/zapier-platform-app-github-example",
-  "homepage": "https://zapier.com/developer",
-  "author": "Zane Lyon <zane.lyon@zapier.com>",
+  "name": "outline-zapier-app",
+  "version": "0.1.0",
+  "description": "An app connecting Outline to the Zapier platform",
+  "repository": "outline/outline-zapier",
+  "homepage": "https://getoutline.com",
   "license": "BSD-3-Clause",
   "main": "index.js",
   "scripts": {

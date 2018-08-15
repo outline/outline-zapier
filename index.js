@@ -1,6 +1,6 @@
-const repoTrigger = require('./triggers/repo');
-const issueCreate = require('./creates/issue');
-const issueTrigger = require('./triggers/issue');
+const docCreate = require('./creates/doc');
+const docTrigger = require('./triggers/doc');
+const collectionTrigger = require('./triggers/collection');
 const authentication = require('./authentication');
 
 const handleHTTPError = (response, z) => {
@@ -8,6 +8,13 @@ const handleHTTPError = (response, z) => {
     throw new Error(`Unexpected status code ${response.status}`);
   }
   return response;
+};
+
+const addHeaders = (request, z, bundle) => {
+  request.headers['Content-Type'] = 'application/json';
+  request.headers.Accept = 'application/json';
+  request.headers.Authorization = `Bearer ${bundle.authData.api_token}`;
+  return request;
 };
 
 const App = {
@@ -19,6 +26,7 @@ const App = {
 
   // beforeRequest & afterResponse are optional hooks into the provided HTTP client
   beforeRequest: [
+    addHeaders
   ],
 
   afterResponse: [
@@ -31,8 +39,8 @@ const App = {
 
   // If you want your trigger to show up, you better include it here!
   triggers: {
-    [repoTrigger.key]: repoTrigger,
-    [issueTrigger.key]: issueTrigger,
+    [collectionTrigger.key]: collectionTrigger,
+    [docTrigger.key]: docTrigger
   },
 
   // If you want your searches to show up, you better include it here!
@@ -41,7 +49,7 @@ const App = {
 
   // If you want your creates to show up, you better include it here!
   creates: {
-    [issueCreate.key]: issueCreate,
+    [docCreate.key]: docCreate,
   }
 };
 
