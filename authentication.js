@@ -7,7 +7,11 @@ const authentication = {
     url: 'https://getoutline.com/api/auth.info'
   },
 
-  connectionLabel: "{{data.team.name}} ({{data.user.name}})",
+  connectionLabel: (z, bundle) => {
+    // bundle.inputData has whatever comes back from the .test
+    const data = bundle.inputData.data;
+    return `${data.team.name} (${data.user.name})`;
+  },
 
   fields: [
     {
