@@ -3,7 +3,7 @@ const createDoc = (z, bundle) => {
     method: 'POST',
     url: `https://getoutline.com/api/documents.create`,
     body: JSON.stringify({
-      collectionId: bundle.inputData.collection,
+      collectionId: bundle.inputData.collectionId,
       publish: bundle.inputData.publish,
       title: bundle.inputData.title,
       text: bundle.inputData.text
