@@ -3,7 +3,7 @@ const createDoc = (z, bundle) => {
     method: 'POST',
     url: `https://getoutline.com/api/documents.create`,
     body: JSON.stringify({
-      collection: bundle.inputData.collection,
+      collectionId: bundle.inputData.collectionId,
       publish: bundle.inputData.publish,
       title: bundle.inputData.title,
       text: bundle.inputData.text,
@@ -26,7 +26,7 @@ module.exports = {
 
   operation: {
     inputFields: [
-      {key: 'collection', label:'Collection', required: true, dynamic: 'collection.id.name'},
+      {key: 'collectionId', label:'Collection', required: true, dynamic: 'collection.id.name'},
       {key: 'parentDocumentId', label:'Parent Document', required: false},
       {key: 'title', label:'Title', required: true},
       {key: 'text', label:'Text', required: true},
