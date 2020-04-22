@@ -6,7 +6,8 @@ const createDoc = (z, bundle) => {
       collectionId: bundle.inputData.collectionId,
       publish: bundle.inputData.publish,
       title: bundle.inputData.title,
-      text: bundle.inputData.text
+      text: bundle.inputData.text,
+      parentDocumentId: bundle.inputData.parentDocumentId
     })
   });
   return responsePromise
@@ -26,6 +27,7 @@ module.exports = {
   operation: {
     inputFields: [
       {key: 'collectionId', label:'Collection', required: true, dynamic: 'collection.id.name'},
+      {key: 'parentDocumentId', label:'Parent Document', required: false},
       {key: 'title', label:'Title', required: true},
       {key: 'text', label:'Text', required: true},
       {key: 'publish', label:'Publish', required: true, type: 'boolean'}
