@@ -18,7 +18,7 @@ const authentication = {
       key: 'api_token',
       type: 'string',
       required: true,
-      helpText: 'API token from your settings'
+      helpText: 'Go to "API tokens" under settings in your Outline account to create an API token.'
     }
   ]
 };
