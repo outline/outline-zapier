@@ -2,7 +2,8 @@ const triggerCollection = (z, bundle) => {
   const responsePromise = z.request({
     url: 'https://getoutline.com/api/collections.list',
     params: {
-      limit: 100
+      limit: 20,
+      offset: 20 * bundle.meta.page
     }
   });
   return responsePromise
