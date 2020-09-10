@@ -11,6 +11,7 @@ const handleHTTPError = (response, z) => {
 };
 
 const addHeaders = (request, z, bundle) => {
+  request.headers['X-Application'] = 'Zapier';
   request.headers['Content-Type'] = 'application/json';
   request.headers.Accept = 'application/json';
   request.headers.Authorization = `Bearer ${bundle.authData.api_token}`;

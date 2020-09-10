@@ -6,14 +6,7 @@
   "homepage": "https://getoutline.com",
   "license": "BSD-3-Clause",
   "main": "index.js",
-  "scripts": {
-    "test": "node node_modules/mocha/bin/mocha --recursive"
-  },
   "dependencies": {
     "zapier-platform-core": "10.1.1"
-  },
-  "devDependencies": {
-    "mocha": "^5.2.0",
-    "should": "^13.2.0"
   }
 }
