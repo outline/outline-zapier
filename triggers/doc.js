@@ -1,3 +1,5 @@
+const sample = require("../samples/doc.json");
+
 const triggerDoc = (z, bundle) => {
   const responsePromise = z.request({
     method: 'GET',
@@ -16,14 +18,15 @@ module.exports = {
   noun: 'Document',
 
   display: {
-    label: 'Get Document',
-    description: 'Triggers on a new document.'
+    label: 'New Document',
+    description: 'Triggers when a new document is created.'
   },
 
   operation: {
     inputFields: [
-      {key: 'collection', label: 'Collection', required: true, dynamic: 'collection.id.name'},
+      { key: 'collection', label: 'Collection', required: true, dynamic: 'collection.id.name' },
     ],
-    perform: triggerDoc
+    perform: triggerDoc,
+    sample
   }
 };

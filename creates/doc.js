@@ -1,3 +1,5 @@
+const sample = require("../samples/doc.json");
+
 const createDoc = (z, bundle) => {
   const responsePromise = z.request({
     method: 'POST',
@@ -26,12 +28,13 @@ module.exports = {
 
   operation: {
     inputFields: [
-      {key: 'collectionId', label:'Collection', required: true, dynamic: 'collection.id.name'},
-      {key: 'parentDocumentId', label:'Parent Document', required: false},
-      {key: 'title', label:'Title', required: true},
-      {key: 'text', label:'Text', required: true},
-      {key: 'publish', label:'Publish', required: true, type: 'boolean'}
+      { key: 'collectionId', label: 'Collection', required: true, dynamic: 'collection.id.name' },
+      { key: 'parentDocumentId', label: 'Parent Document', required: false },
+      { key: 'title', label: 'Title', required: true },
+      { key: 'text', label: 'Text', required: true },
+      { key: 'publish', label: 'Publish', required: true, type: 'boolean' }
     ],
-    perform: createDoc
+    perform: createDoc,
+    sample
   }
 };

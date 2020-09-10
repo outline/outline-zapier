@@ -1,0 +1,48 @@
+{
+  "id": "a1499193-2edd-4121-aca3-4d745930958c",
+  "url": "/doc/zapier-sample-hEYep1TPOT",
+  "urlId": "hEYep1TPOT",
+  "title": "Zapier Sample",
+  "text": "This is a sample document",
+  "createdAt": "2019-05-27T00:00:00.000Z",
+  "createdBy": {
+    "id": "292079f8-0419-2111-bb5b-315e8ae8f14e",
+    "createdAt": "2018-07-25T03:23:38.034Z",
+    "lastActiveAt": "2020-09-10T01:58:28.501Z",
+    "name": "Jane Doe",
+    "isAdmin": true,
+    "isSuspended": false,
+    "avatarUrl": "/api/attachments.redirect?id=ae0f4675-6034-422f-8723-d24244da643c"
+  },
+  "updatedAt": "2019-05-27T00:00:00.000Z",
+  "updatedBy": {
+    "id": "292079f8-0419-2111-bb5b-315e8ae8f14e",
+    "createdAt": "2018-07-25T03:23:38.034Z",
+    "lastActiveAt": "2020-09-10T01:58:28.501Z",
+    "name": "Jane Doe",
+    "isAdmin": true,
+    "isSuspended": false,
+    "avatarUrl": "/api/attachments.redirect?id=ae0f4675-6034-422f-8723-d24244da643c"
+  },
+  "publishedAt": "2019-05-27T00:00:00.000Z",
+  "archivedAt": null,
+  "deletedAt": null,
+  "teamId": "89eaef22-3284-42a5-a329-a7c6a08fa09f",
+  "template": false,
+  "templateId": null,
+  "collaborators": [
+    {
+      "id": "292079f8-0419-2111-bb5b-315e8ae8f14e",
+      "createdAt": "2018-07-25T03:23:38.034Z",
+      "lastActiveAt": "2020-09-10T01:58:28.501Z",
+      "name": "Jane Doe",
+      "isAdmin": true,
+      "isSuspended": false,
+      "avatarUrl": "/api/attachments.redirect?id=ae0f4675-6034-422f-8723-d24244da643c"
+    }
+  ],
+  "revision": 1,
+  "pinned": false,
+  "collectionId": "aa019b4e-a519-47d1-bc56-a2d3f6896abe",
+  "parentDocumentId": null
+}
