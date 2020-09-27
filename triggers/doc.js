@@ -1,11 +1,15 @@
 const sample = require("../samples/doc.json");
 
-const triggerDoc = (z, bundle) => {
+const listDocuments = (z, bundle) => {
   const responsePromise = z.request({
     method: 'GET',
-    url: `https://getoutline.com/api/documents.list`,
+    url: `https://app.getoutline.com/api/documents.list`,
     params: {
-      collection: bundle.inputData.collection
+      sort: "createdAt",
+      direction: "DESC",
+      collectionId: bundle.inputData.collectionId,
+      limit: 20,
+      offset: 20 * bundle.meta.page
     }
   });
   return responsePromise
@@ -16,17 +20,15 @@ const triggerDoc = (z, bundle) => {
 module.exports = {
   key: 'doc',
   noun: 'Document',
-
   display: {
     label: 'New Document',
-    description: 'Triggers when a new document is created.'
+    description: 'Triggers when a new document is published.'
   },
-
   operation: {
     inputFields: [
-      { key: 'collection', label: 'Collection', required: true, dynamic: 'collection.id.name' },
+      { key: 'collectionId', label: 'Collection', dynamic: 'collection.id.name' },
     ],
-    perform: triggerDoc,
+    perform: listDocuments,
     sample
   }
 };

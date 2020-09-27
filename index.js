@@ -5,7 +5,14 @@ const authentication = require('./authentication');
 
 const handleHTTPError = (response, z) => {
   if (response.status >= 400) {
-    throw new Error(`Unexpected status code ${response.status}`);
+    let data;
+    try {
+      data = JSON.parse(response.content);
+    } catch (err) {
+      throw new z.errors.Error("An unexpected error occurred", "unexpected", response.status);
+    }
+
+    throw new z.errors.Error(`Sorry, ${data.message}`, data.error, response.status);
   }
   return response;
 };

@@ -1,7 +1,9 @@
-const triggerCollection = (z, bundle) => {
+const listCollections = (z, bundle) => {
   const responsePromise = z.request({
-    url: 'https://getoutline.com/api/collections.list',
+    url: 'https://app.getoutline.com/api/collections.list',
     params: {
+      sort: "name",
+      direction: "ASC",
       limit: 20,
       offset: 20 * bundle.meta.page
     }
@@ -14,17 +16,13 @@ const triggerCollection = (z, bundle) => {
 module.exports = {
   key: 'collection',
   noun: 'Collection',
-
   display: {
     label: 'Get Collection',
     hidden: true,
     description: 'The only purpose of this trigger is to populate the dropdown list of collections in the UI, thus, it\'s hidden.'
   },
-
   operation: {
-    inputFields: [
-
-    ],
-    perform: triggerCollection
+    inputFields: [],
+    perform: listCollections
   }
 };
