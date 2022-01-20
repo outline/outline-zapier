@@ -16,9 +16,9 @@ const listDocuments = (z, bundle) => {
     .then(response => JSON.parse(response.content))
     .then(content => content.data)
     .then(items => items.map((item) => {
-      const documentId = item.id;
-      const documentRevision = item.revision;
-      item.id = documentId + '-' + documentRevision;
+      item.documentId = item.id;
+      item.revision;
+      item.id = item.documentId + '-' + item.documentRevision;
       return item;
     }));
 };
