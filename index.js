@@ -18,6 +18,7 @@ const handleHTTPError = (response, z) => {
 };
 
 const addHeaders = (request, z, bundle) => {
+  request.method = 'POST';
   request.headers['X-Application'] = 'Zapier';
   request.headers['Content-Type'] = 'application/json';
   request.headers.Accept = 'application/json';
