@@ -2,7 +2,7 @@ const sample = require("../samples/doc.json");
 
 const listDocuments = (z, bundle) => {
   const responsePromise = z.request({
-    method: 'GET',
+    method: 'POST',
     url: `https://app.getoutline.com/api/documents.list`,
     params: {
       sort: "createdAt",

@@ -1,5 +1,6 @@
 const listCollections = (z, bundle) => {
   const responsePromise = z.request({
+    method: 'POST',
     url: 'https://app.getoutline.com/api/collections.list',
     params: {
       sort: "name",
