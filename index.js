@@ -1,5 +1,6 @@
 const docCreate = require('./creates/doc');
 const docTrigger = require('./triggers/doc');
+const docUpdatedTrigger = require('./triggers/docUpdated');
 const collectionTrigger = require('./triggers/collection');
 const authentication = require('./authentication');
 
@@ -49,7 +50,8 @@ const App = {
   // If you want your trigger to show up, you better include it here!
   triggers: {
     [collectionTrigger.key]: collectionTrigger,
-    [docTrigger.key]: docTrigger
+    [docTrigger.key]: docTrigger,
+    [docUpdatedTrigger.key]: docUpdatedTrigger
   },
 
   // If you want your searches to show up, you better include it here!
