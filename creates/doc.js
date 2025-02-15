@@ -1,9 +1,11 @@
 const sample = require("../samples/doc.json");
+const { getBaseUrl } = require("../utils");
 
-const createDoc = (z, bundle) => {
-  const responsePromise = z.request({
+const createDoc = async (z, bundle) => {
+  const baseUrl = getBaseUrl(bundle);
+  const response = await z.request({
     method: 'POST',
-    url: `https://app.getoutline.com/api/documents.create`,
+    url: `${baseUrl}/api/documents.create`,
     body: JSON.stringify({
       collectionId: bundle.inputData.collectionId,
       publish: bundle.inputData.publish,
@@ -12,9 +14,13 @@ const createDoc = (z, bundle) => {
       parentDocumentId: bundle.inputData.parentDocumentId
     })
   });
-  return responsePromise
-    .then(response => JSON.parse(response.content))
-    .then(content => content.data);
+
+  try {
+    const content = JSON.parse(response.content);
+    return content.data;
+  } catch (error) {
+    throw new Error("Failed to parse create document response: " + error.message);
+  }
 };
 
 module.exports = {

@@ -1,7 +1,10 @@
-const listCollections = (z, bundle) => {
-  const responsePromise = z.request({
+const { getBaseUrl } = require("../utils");
+
+const listCollections = async (z, bundle) => {
+  const baseUrl = getBaseUrl(bundle);
+  const response = await z.request({
     method: 'POST',
-    url: 'https://app.getoutline.com/api/collections.list',
+    url: `${baseUrl}/api/collections.list`,
     params: {
       sort: "name",
       direction: "ASC",
@@ -9,9 +12,13 @@ const listCollections = (z, bundle) => {
       offset: 20 * bundle.meta.page
     }
   });
-  return responsePromise
-    .then(response => JSON.parse(response.content))
-    .then(content => content.data);
+
+  try {
+    const content = JSON.parse(response.content);
+    return content.data;
+  } catch (error) {
+    throw new Error("Failed to parse collections response: " + error.message);
+  }
 };
 
 module.exports = {
