@@ -9,6 +9,7 @@ const authentication = {
   test: async (z, bundle) => {
     const baseUrl = getBaseUrl(bundle);
     const response = await z.request({
+      method: 'POST',
       url: `${baseUrl}/api/auth.info`
     });
     try {
@@ -35,14 +36,14 @@ const authentication = {
       required: false,
       default: 'https://app.getoutline.com',
       helpText:
-          'The URL for your Outline instance. Leave blank to use the default hosted version (https://app.getoutline.com).'
+          'The URL for your Outline instance. Leave blank to use cloud hosted Outline (https://app.getoutline.com).'
     },
     {
       key: 'api_token',
       type: 'string',
       required: true,
       helpText:
-          'Go to "API tokens" under settings in your Outline account to create an API token.'
+          'Go to "Settings -> API Keys" in your Outline workspace to create a new API key.'
     }
   ]
 };
